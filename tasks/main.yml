@@ -1,0 +1,17 @@
+---
+# tasks file for destroy-dns
+- name: Get information of the record
+  route53:
+    command: get
+    zone    : "{{ dns.zone }}"
+    record  : "{{ dns.record }}"
+    type    : "{{ dns.type }}"
+  register: record
+
+- name: Create Route53 DNS record
+  route53:
+    command : delete
+    zone    : "{{ dns.zone }}"
+    record  : "{{ record.set.record }}"
+    type    : "{{ record.set.type }}"
+    value   : "{{ record.set.value }}"
