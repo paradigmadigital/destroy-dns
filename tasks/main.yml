@@ -8,7 +8,7 @@
     type    : "{{ dns.type }}"
   register: record
 
-- name: Create Route53 DNS record
+- name: Delete Route53 DNS record
   route53:
     command : delete
     zone    : "{{ dns.zone }}"
