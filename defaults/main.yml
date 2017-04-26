@@ -1,0 +1,6 @@
+---
+# defaults file for destroy-dns
+dns:
+  zone   :
+  record :
+  type   :
